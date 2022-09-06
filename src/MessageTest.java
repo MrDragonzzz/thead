@@ -1,15 +1,20 @@
 import org.junit.Test;
 
 public class MessageTest {
-    @Test
-    public void testSend() throws InterruptedException {
+    public static void main(String[] args) {
         Message message = new Message();
         UserA userA = new UserA(message);
         UserB userB = new UserB(message);
         userA.setName("A");
         userB.setName("B");
         userA.start();
-        Thread.sleep(100);
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         userB.start();
     }
+
+
 }
